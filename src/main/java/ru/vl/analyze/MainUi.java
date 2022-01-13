@@ -1,11 +1,10 @@
 package ru.vl.analyze;
 
-import java.io.IOException;
 import java.io.InputStreamReader;
 
 //входная точка
 public class MainUi {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         //анализ входных аргументов
         ArgumentAnalyzer analyzer = new ArgumentAnalyzer(args);
         boolean rsl = analyzer.analyze();
