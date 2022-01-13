@@ -11,7 +11,7 @@ public class MainUi {
         boolean rsl = analyzer.analyze();
         if (!rsl) return;
         //обработка потока согласно входным параметрам
-        Analyzer logWatcher = new SimpleAnalyzer(analyzer.percent, analyzer.milisec);
+        Analyzer logWatcher = new SimpleAnalyzer(analyzer.getPercent(), analyzer.getMilisec());
         logWatcher.analyze(new InputStreamReader(System.in));
     }
 }

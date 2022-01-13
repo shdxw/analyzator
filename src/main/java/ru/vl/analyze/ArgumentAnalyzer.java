@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ArgumentAnalyzer {
-    String[] args;
-    Map<String, String> params = new HashMap<>();
-    float percent = 0;
-    int milisec = 0;
+    private String[] args;
+    private Map<String, String> params = new HashMap<>();
+    private float percent = 0;
+    private int milisec = 0;
 
     public ArgumentAnalyzer(String[] args) {
         this.args = args;

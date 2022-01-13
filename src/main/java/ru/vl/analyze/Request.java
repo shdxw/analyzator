@@ -7,9 +7,9 @@ import java.util.Objects;
 
 //класс, представляющий запрос в файле
 public class Request {
-    float miliseconds;
-    int code;
-    Date date;
+    private float miliseconds;
+    private int code;
+    private Date date;
 
     public Request(float miliseconds, int code, Date date) {
         this.miliseconds = miliseconds;

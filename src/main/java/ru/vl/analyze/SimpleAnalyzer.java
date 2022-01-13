@@ -4,12 +4,11 @@ import java.io.InputStreamReader;
 import java.util.Date;
 import java.util.Scanner;
 
-//реализация анализатора
+//реализация анализатора (в целом можно добавить логгер)
 public class SimpleAnalyzer implements Analyzer {
     private final float percent;
     private final int milisec;
     private final int LINES = 60;
-    private Request currentRequest;
 
 
     public SimpleAnalyzer(float percent, int milisec) {
@@ -26,14 +25,13 @@ public class SimpleAnalyzer implements Analyzer {
             Date oldTime = null;
 
             while (reader.hasNextLine()) {
-                currentRequest = Request.parseRequest(reader.nextLine());
+                Request currentRequest = Request.parseRequest(reader.nextLine());
                 if (count == 0) {
-                    oldTime = currentRequest.date;
+                    oldTime = currentRequest.getDate();
                 }
 
                 if (currentRequest.isNotBadRequest(milisec)) {
                     good++;
-                    System.out.println("good");
                 }
                 count++;
                 if (count >= LINES || !reader.hasNext()) {
@@ -43,7 +41,7 @@ public class SimpleAnalyzer implements Analyzer {
 
                     if (rsl < percent) {
                         System.out.printf("%s %s %.1f%n", oldTime.toString().split(" ")[3],
-                                currentRequest.date.toString().split(" ")[3], rsl);
+                                currentRequest.getDate().toString().split(" ")[3], rsl);
                     }
                 }
 
