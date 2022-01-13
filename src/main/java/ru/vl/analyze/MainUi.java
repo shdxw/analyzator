@@ -3,11 +3,14 @@ package ru.vl.analyze;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+//входная точка
 public class MainUi {
     public static void main(String[] args) throws IOException {
-//        String[] args = {"-u", "99.0", "-t", "45"};
+        //анализ входных аргументов
         ArgumentAnalyzer analyzer = new ArgumentAnalyzer(args);
-        analyzer.analyze();
+        boolean rsl = analyzer.analyze();
+        if (!rsl) return;
+        //обработка потока согласно входным параметрам
         Analyzer logWatcher = new SimpleAnalyzer(analyzer.percent, analyzer.milisec);
         logWatcher.analyze(new InputStreamReader(System.in));
     }

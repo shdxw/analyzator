@@ -4,5 +4,5 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public interface Analyzer {
-    public void analyze(InputStreamReader input) throws IOException;
+    void analyze(InputStreamReader input);
 }

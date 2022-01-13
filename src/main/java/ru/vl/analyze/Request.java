@@ -2,10 +2,10 @@ package ru.vl.analyze;
 
 import ru.vl.analyze.util.Util;
 
-import java.text.ParseException;
 import java.util.Date;
 import java.util.Objects;
 
+//класс, представляющий запрос в файле
 public class Request {
     float miliseconds;
     int code;
@@ -52,9 +52,8 @@ public class Request {
         return Objects.hash(getMiliseconds(), getCode(), getDate());
     }
 
-    public boolean isBadRequest(int milisec) {
-        return ((code >= 500 && code < 600)
-                || ((float) miliseconds > milisec));
+    public boolean isNotBadRequest(int milisec) {
+        return !((code >= 500 && code < 600) || ((float) miliseconds > milisec));
     }
 
     public static Request parseRequest(String request) {
